@@ -1,0 +1,37 @@
+version: "2"
+
+services:
+  dev:
+    build: .
+    ports:
+      - "50701:5000"
+      - "50702:22"
+    volumes:
+      - /volumes-data/golang-dev/logcenter/golang.dev.localhost:/data/log
+      - /volumes-data/golang-dev/datacenter/golang.dev.localhost:/data/persist
+    environment:
+      - EMAIL=user@leadstec.com
+      - ENGINE=localhost
+      - ENABLE_SSHD=true
+      - AUTH_SERVER_URL=sso.leadstec.com/auth
+      - AUTH_REALM=faycloud
+      - AUTH_CLIENT_ID=lcs
+      - AUTH_CLIENT_SECRET=
+    hostname: golang.dev.localhost
+  app:
+    image: reg.leadstec.com/golang:latest
+    ports:
+      - "50703:5000"
+      - "50704:22"
+    volumes:
+      - /volumes-data/logcenter/golang.localhost:/data/log
+      - /volumes-data/datacenter/golang.localhost:/data/persist
+    environment:
+      - EMAIL=user@leadstec.com
+      - ENGINE=localhost
+      - ENABLE_SSHD=true
+      - AUTH_SERVER_URL=sso.leadstec.com/auth
+      - AUTH_REALM=faycloud
+      - AUTH_CLIENT_ID=lcs
+      - AUTH_CLIENT_SECRET=
+    hostname: golang.localhost

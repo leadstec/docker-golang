@@ -1,0 +1,7 @@
+*.rpm
+*.tar.gz
+*.tgz
+*.zip
+sftp-config.json
+docker-compose.yml
+/assets/setup/build

@@ -1,0 +1,16 @@
+{
+  "image": "golang",
+  "version": "1.6.2",
+  "build": "{{PIPELINE_BUILD_NUMBER}}",
+  "schema": "20160524",
+  "lcs_schema": "1.1.0",
+  "permissions": [
+    {
+      "chmod": "755",
+      "chown": "golang:golang",
+      "path": "${APP_DIR}"
+    }
+  ],
+  "envs": [],
+  "storages": []
+}
