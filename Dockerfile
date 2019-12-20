@@ -1,13 +1,13 @@
 #
 # AUTHOR            Frank,H.L.Lai <frank@leadstec.com>
-# DOCKER-VERSION    17.03
-# Copyright         (C) 2017 Leads Technologies Ltd. All rights reserved.
+# DOCKER-VERSION    19.03
+# Copyright         (C) 2020 LEADSTEC Solutions. All rights reserved.
 #
-# Description       Dockerfile for Golang image
-#
-FROM       reg.leadstec.com/alpine:latest
-MAINTAINER Frank,H.L.Lai <frank@leadstec.com>
-LABEL leadstec-neo4j-build="1.6.2-{{PIPELINE_BUILD_NUMBER}}"
+FROM leadstec/alpine:3.10.3
+
+LABEL version="${version}-${build}" \
+    description="GoLang image for VCubi" \
+    maintainer="Frank,H.L.Lai <frank@leadstec.com>"
 
 # set environment variables
 ENV GOLANG_VERSION="1.6.2" \

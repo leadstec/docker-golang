@@ -7,8 +7,8 @@ services:
       - "50701:5000"
       - "50702:22"
     volumes:
-      - /volumes-data/golang-dev/logcenter/golang.dev.localhost:/data/log
-      - /volumes-data/golang-dev/datacenter/golang.dev.localhost:/data/persist
+      - /volumes-data/golang.local/log:/data/log
+      - /volumes-data/golang.local/persist:/data/persist
     environment:
       - EMAIL=user@leadstec.com
       - ENGINE=localhost
