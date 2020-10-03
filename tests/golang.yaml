@@ -1,0 +1,19 @@
+schemaVersion: '2.0.0'
+
+commandTests:
+  - name: "Go"
+    command: "which"
+    args: ["go"]
+    expectedOutput: ["/usr/bin/go"]
+
+fileExistenceTests:
+  - name: 'Schema file'
+    path: '/etc/lcs/golang.json'
+    shouldExist: true
+    permissions: '-rw-r--r--'
+    uid: 0
+    gid: 0
+
+metadataTest:
+  entrypoint: ["lcsd"]
+  cmd: ["run", "start"]

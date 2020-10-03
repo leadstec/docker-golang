@@ -1,37 +1,23 @@
-version: "2"
+version: "3.8"
 
 services:
-  dev:
-    build: .
+
+  golang:
+    build:
+      context: .
+      args:
+        - arch=
+        - version=1.13.14
+        - build=dev
+    image: leadstec.tencentcloudcr.com/leadstec/golang:1.13.14
     ports:
       - "50701:5000"
-      - "50702:22"
     volumes:
-      - /volumes-data/golang.local/log:/data/log
-      - /volumes-data/golang.local/persist:/data/persist
+      - ~/volumes/golang.local/log:/data/log
+      - ~/volumes/golang.local/persist:/data/persist
+    env_file:
+      - ./env
     environment:
-      - EMAIL=user@leadstec.com
-      - ENGINE=localhost
-      - ENABLE_SSHD=true
-      - AUTH_SERVER_URL=sso.leadstec.com/auth
-      - AUTH_REALM=faycloud
-      - AUTH_CLIENT_ID=lcs
-      - AUTH_CLIENT_SECRET=
-    hostname: golang.dev.localhost
-  app:
-    image: reg.leadstec.com/golang:latest
-    ports:
-      - "50703:5000"
-      - "50704:22"
-    volumes:
-      - /volumes-data/logcenter/golang.localhost:/data/log
-      - /volumes-data/datacenter/golang.localhost:/data/persist
-    environment:
-      - EMAIL=user@leadstec.com
-      - ENGINE=localhost
-      - ENABLE_SSHD=true
-      - AUTH_SERVER_URL=sso.leadstec.com/auth
-      - AUTH_REALM=faycloud
-      - AUTH_CLIENT_ID=lcs
-      - AUTH_CLIENT_SECRET=
-    hostname: golang.localhost
+      - EMAIL=
+    hostname: golang.local
+    container_name: golang.local

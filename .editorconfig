@@ -17,5 +17,14 @@ indent_size = 4
 [**.yml]
 indent_size = 2
 
+[**.js, **.json]
+indent_size = 2
+quote_type = single
+curly_bracket_next_line = false
+spaces_around_operators = true
+space_after_control_statements = true
+space_after_anonymous_functions = true
+spaces_in_brackets = false
+
 [*.md]
 trim_trailing_whitespace = false

@@ -1,16 +1,18 @@
 {
+  "registry": "leadstec",
   "image": "golang",
-  "version": "1.6.2",
-  "build": "{{PIPELINE_BUILD_NUMBER}}",
-  "schema": "20160524",
-  "lcs_schema": "1.1.0",
+  "version": "",
+  "build": "",
+  "schema": "20201003",
+  "lcs_schema": "1.6.0",
   "permissions": [
     {
       "chmod": "755",
-      "chown": "golang:golang",
+      "chown": "go:lcs",
       "path": "${APP_DIR}"
     }
   ],
   "envs": [],
+  "secrets": [],
   "storages": []
 }

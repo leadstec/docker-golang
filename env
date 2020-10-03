@@ -1,0 +1,8 @@
+# alpine & lcs ENVs
+EMAIL=user@leadstec.com
+ENGINE=example.com
+ENABLE_CROND=false
+ENABLE_SUPERVISORD_HTTP=false
+LCS_LOG_LEVEL=production
+LCS_LOG_OUTPUT=stderr
+LCS_LOG_TIMESTAMP=0

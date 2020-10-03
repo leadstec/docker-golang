@@ -2,31 +2,21 @@
 
 set -e
 
-notify title "GOLANG: Pre-installation starts ..."
+clog -t "golang: Build process start ..."
 
-# copy schema and add to metadata
-cp -f /scripts/setup/golang.json ${LCS_CONFIG_DIR}/golang.json
+# add image schema
 lcs-cli schema add --section golang
 
 # Create the golang user and group
-adduser -h /home/golang -s /bin/bash -D golang
-passwd -d golang
-# Add golang to wheel
-addgroup golang wheel
-# create .ssh directory for keys
-sudo -HEu golang mkdir -p /home/golang/.ssh
-notify success "golang user and group created."
+adduser -h /home/go -s /bin/bash -D go
+passwd -d go
+# Add go to wheel
+addgroup go wheel
+clog -i "golang: go user and group created."
 
-# create the app directory
-mkdir -p "${APP_DIR}/src" "${APP_DIR}/bin"
-chown -R golang:golang ${APP_DIR}
-notify success "Directories for app created."
+# change go to ownership of ${APP_DIR}
+chown -R go:lcs ${APP_DIR}
+clog -i "golang: Fixed ownership of ${APP_DIR}"
 
-# set global environment variables
-cat > /etc/profile.d/golang.sh <<EOF
-export GOPATH=${APP_DIR}
-export PATH=/usr/local/go/bin:$PATH
-EOF
-notify success "Global ENVs added to /etc/profile."
-
-notify title "GOLANG: Pre-installation completed."
+# complete
+clog -t "golang: Build process completed."
