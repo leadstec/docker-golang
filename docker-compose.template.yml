@@ -5,11 +5,7 @@ services:
   golang:
     build:
       context: .
-      args:
-        - arch=
-        - version=1.13.14
-        - build=dev
-    image: leadstec.tencentcloudcr.com/leadstec/golang:1.13.14
+    image: leadstec/golang:1.13
     ports:
       - "50701:5000"
     volumes:
